@@ -2,7 +2,6 @@ package application.rest.v1;
 
 import java.util.UUID;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -103,7 +102,7 @@ public class RemittanceService {
 	public ResponseEntity<?> fabRemitService(@RequestBody String request) throws Exception{
 		request=fabRemitRequestTemplate;
 		ResponseEntity<String> response=null;	
-		if(StringUtils.isBlank(request)){
+		if(null == request || request.trim().length() < 1){
 			response = new ResponseEntity<String>(errorJson, HttpStatus.UNPROCESSABLE_ENTITY); 
 		}
 		else{
@@ -122,7 +121,7 @@ public class RemittanceService {
 	public ResponseEntity<?> debitBanking(@RequestBody String request) throws Exception{
 		request=fabRemitRequestTemplate;
 		ResponseEntity<String> response=null;	
-		if(StringUtils.isBlank(request)){
+		if(null == request || request.trim().length() < 1){
 			response = new ResponseEntity<String>(errorJson, HttpStatus.UNPROCESSABLE_ENTITY); 
 		}
 		else{
@@ -141,7 +140,7 @@ public class RemittanceService {
 	public ResponseEntity<?> bankPostingService(@RequestBody String request) throws Exception{
 		request=requesPostingtJsonTemplate;
 		ResponseEntity<String> response=null;	
-		if(StringUtils.isBlank(request)){
+		if(null == request || request.trim().length() < 1){
 			response = new ResponseEntity<String>(errorJson, HttpStatus.UNPROCESSABLE_ENTITY); 
 		}
 		else{
@@ -161,7 +160,7 @@ public class RemittanceService {
 	public ResponseEntity<?> bankReversalService(@RequestBody String request) throws Exception{
 		request=requestBankReversalTemplate;
 		ResponseEntity<String> response=null;	
-		if(StringUtils.isBlank(request)){
+		if(null == request || request.trim().length() < 1){
 			response = new ResponseEntity<String>(errorJson, HttpStatus.UNPROCESSABLE_ENTITY); 
 		}
 		else{
@@ -180,7 +179,7 @@ public class RemittanceService {
 	public ResponseEntity<?> bankOperations(@RequestBody String request) throws Exception{
 		request=requestOperationsTemplate;
 		ResponseEntity<String> response=null;	
-		if(StringUtils.isBlank(request)){
+		if(null == request || request.trim().length() < 1){
 			response = new ResponseEntity<String>(errorJson, HttpStatus.UNPROCESSABLE_ENTITY); 
 		}
 		else{
