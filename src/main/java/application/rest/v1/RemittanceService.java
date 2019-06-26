@@ -16,7 +16,7 @@ public class RemittanceService {
 	public String fabRemitResponseTemplate = "{\r\n" + 
 			"	\"status\" : \"SUCCESS\",\r\n" + 
 			"	\"correlationId\" : \"X1234\",\r\n" + 
-			"	\"transactionId\": \"ID\"\r\n" + 
+			"	\"transactionId\": \"ID\",\r\n" + 
 			"	\"remittanceReferenceNumber\": \"RT12234\"\r\n"+
 			"}";
 	
@@ -27,15 +27,15 @@ public class RemittanceService {
 			"	\"transactionAmount\": \"100\"\r\n"+
 			"	\"nostroAccount\" : \"23456789012\",\r\n" + 
 			"	\"exchangeRate\" : \"{\r\n" + 
-			"	\"fromCurrency\": \"AED\"\r\n" + 
-			"	\"fromAmount\": \"100\"\r\n"+
+			"	\"fromCurrency\": \"AED\",\r\n" + 
+			"	\"fromAmount\": \"100\",\r\n"+
 			"	\"toCurrency\" : \"INR\",\r\n" + 
 			"	\"toAmount\" : \"1870\",\r\n" + 
 			"	\"conversionRate\": \"0.053475\"\r\n" + 
 			"}"+
 			"	\"beneficiaryDetails\" : \"{\r\n" + 
-			"	\"beneName\": \"Receiver Name\"\r\n" + 
-			"	\"beneAddress\": \"New Delhi, India\"\r\n"+
+			"	\"beneName\": \"Receiver Name\",\r\n" + 
+			"	\"beneAddress\": \"New Delhi, India\",\r\n"+
 			"	\"beneBankName\" : \"INR\",\r\n" + 
 			"	\"beneBankIban\" : \"ICICI Bank\",\r\n" + 
 			"	\"beneBankSwiftCode\": \"ICICINBBCTS\"\r\n" + 
@@ -50,10 +50,10 @@ public class RemittanceService {
 	
 	public String requesPostingtJsonTemplate = "{\r\n" + 
 			"	\"transactionId\" : \"X1234\",\r\n" + 
-			"	\"transactionCurrency\": \"AED\"\r\n" + 
+			"	\"transactionCurrency\": \"AED\",\r\n" + 
 			"	\"beneficiaryDetails\" : \"{\r\n" + 
-			"	\"beneName\": \"Receiver Name\"\r\n" + 
-			"	\"beneAddress\": \"New Delhi, India\"\r\n"+
+			"	\"beneName\": \"Receiver Name\",\r\n" + 
+			"	\"beneAddress\": \"New Delhi, India\",\r\n"+
 			"	\"beneBankName\" : \"INR\",\r\n" + 
 			"	\"beneBankIban\" : \"ICICI Bank\",\r\n" + 
 			"	\"beneBankSwiftCode\": \"ICICINBBCTS\"\r\n" + 
@@ -64,7 +64,7 @@ public class RemittanceService {
 			"	\"status\" : \"200\",\r\n" + 
 			"	\"status\" : \"SUCCESS\",\r\n" + 
 			"	\"correlationId\" : \"X1234\",\r\n" + 
-			"	\"transactionId\": \"ID\"\r\n" + 
+			"	\"transactionId\": \"ID\",\r\n" + 
 			"	\"coreBankingReferenceNumber\": \"RT12234\"\r\n"+
 			"}";
 	
@@ -76,10 +76,10 @@ public class RemittanceService {
 	
     public String requestBankReversalTemplate = "{\r\n" + 
 			"	\"transactionId\" : \"X1234\",\r\n" + 
-			"	\"debitReferenceNumber\":\"DEBIT-1234\"\r\n" + 
+			"	\"debitReferenceNumber\":\"DEBIT-1234\",\r\n" + 
 			"	\"beneficiaryDetails\" : \"{\r\n" + 
-			"	\"beneName\": \"Receiver Name\"\r\n" + 
-			"	\"beneAddress\": \"New Delhi, India\"\r\n"+
+			"	\"beneName\": \"Receiver Name\",\r\n" + 
+			"	\"beneAddress\": \"New Delhi, India\",\r\n"+
 			"	\"beneBankName\" : \"INR\",\r\n" + 
 			"	\"beneBankIban\" : \"ICICI Bank\",\r\n" + 
 			"	\"beneBankSwiftCode\": \"ICICINBBCTS\"\r\n" + 
@@ -88,13 +88,13 @@ public class RemittanceService {
 	
 	public String responseBankReversaltTemplate = "{\r\n" + 
 			"	\"correlationId\" : \"X1234\",\r\n" + 
-			"	\"transactionId\": \"ID\"\r\n" + 
+			"	\"transactionId\": \"ID\",\r\n" + 
 			"	\"reversalReferenceNumber\": \"RT12234\"\r\n"+
 			"}";
 	 public String requestOperationsTemplate = "{\r\n" + 
 				"	\"transactionId\" : \"X1234\",\r\n" + 
-				"	\"dbCrudOperation\":\"INSERT\"\r\n" + 
-				"	\"checkPoint\": \"AML\"\r\n" + 
+				"	\"dbCrudOperation\":\"INSERT\",\r\n" + 
+				"	\"checkPoint\": \"AML\",\r\n" + 
 				"	\"query\": \"insert into remittance(correlationId, checkPoint, status) values('X1234', 'AML', 'SUCCESS')\"\r\n"+
 				"}"; 
 	
