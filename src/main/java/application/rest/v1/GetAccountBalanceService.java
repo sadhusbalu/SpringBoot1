@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,10 +14,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import application.dao.JdbcExample;
+
 
 @RestController
 public class GetAccountBalanceService{
 
+	@Autowired
+	private JdbcExample jdbcQuery;
+	
 	private static  SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	
 	public String jsonTemplate = "{\r\n" + 
@@ -51,9 +57,9 @@ public class GetAccountBalanceService{
 		
 		jsonTemplate=jsonTemplate.replaceAll("DATESTRING", currentDate);
 		errorJson=errorJson.replaceAll("DATESTRING", currentDate);
-		
+		String acctBal = jdbcQuery.getAccountBalance(SSN);
 		if ((null == plan || plan.trim().length() < 1) || (null == SSN || SSN.trim().length() < 1)
-				|| (null == balanceDetails.get(SSN))) {			
+				|| null == acctBal) {			
 			invalidParameters = Boolean.TRUE;
 			response = new ResponseEntity<String>(errorJson, HttpStatus.BAD_REQUEST); 
 		}
@@ -62,7 +68,7 @@ public class GetAccountBalanceService{
 		if(!invalidParameters ) {
 			
 			
-			response = new ResponseEntity<String>(jsonTemplate.replaceAll("BALANCE", balanceDetails.get(SSN)), HttpStatus.OK);
+			response = new ResponseEntity<String>(jsonTemplate.replaceAll("BALANCE", acctBal), HttpStatus.OK);
 		}
 		
 		System.out.println("Response JSON --> "+ response.toString());
