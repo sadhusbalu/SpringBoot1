@@ -9,6 +9,8 @@ import org.springframework.context.annotation.ComponentScan;
 public class SBApplication {
 
     public static void main(String[] args) {
+    	System.setProperty("java.net.preferIPv6Addresses", "true");  
+		
         SpringApplication.run(SBApplication.class, args);
     }
 }
